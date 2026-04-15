@@ -15,10 +15,9 @@
             <div class="links">
                 <a href="index.php">Home</a>
                 <a href="#">Login</a>
-                <a href="#">Registration</a>
+                <a href="registration.php">Registration</a>
             </div>
         </div>
-
         <div class="bodyText">
             <h1>Welcome to xCompany</h1>
         </div>
