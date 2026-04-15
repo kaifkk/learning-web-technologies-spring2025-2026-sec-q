@@ -7,17 +7,25 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div>
+    <div class="container">
         <div class="navBarParent">
             <div>
                 <h1>X Company</h1>
             </div>
-            <div>
+            <div class="links">
                 <a href="index.php">Home</a>
                 <a href="#">Login</a>
                 <a href="#">Registration</a>
             </div>
         </div>
+
+        <div class="bodyText">
+            <h1>Welcome to xCompany</h1>
+        </div>
+
+        <footer>
+            <p>Copyright © 2017</p>
+        </footer>
     </div>
 </body>
 </html>
