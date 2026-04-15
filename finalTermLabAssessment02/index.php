@@ -14,7 +14,7 @@
             </div>
             <div class="links">
                 <a href="index.php">Home</a>
-                <a href="#">Login</a>
+                <a href="login.php">Login</a>
                 <a href="registration.php">Registration</a>
             </div>
         </div>

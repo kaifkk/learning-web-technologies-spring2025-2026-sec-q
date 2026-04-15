@@ -23,7 +23,7 @@
         <fieldset>
             <legend>REGISTRATION</legend>
 
-            <form>
+            <form method="post">
 
                 <table>
                     <tr>
