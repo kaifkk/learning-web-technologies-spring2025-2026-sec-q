@@ -1,3 +1,23 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['users'])) {
+    $_SESSION['users'] = [];
+}
+
+if (isset($_POST['submit'])) {
+    $email = $_POST['email'];
+
+    if (!isset($_SESSION['users'][$email]) &&
+        $_POST['password'] == $_POST['confirm']) {
+
+        $_SESSION['users'][$email] = $_POST;
+        header("Location: login.php");
+        exit();
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,7 +49,7 @@
                     <tr>
                         <td>Name</td>
                         <td>:</td>
-                        <td><input type="text"></td>
+                        <td><input type="text" name="name"></td>
                     </tr>
                 </table>
                 <hr>
@@ -38,7 +58,7 @@
                     <tr>
                         <td>Email</td>
                         <td>:</td>
-                        <td><input type="email"></td>
+                        <td><input type="email" name="email"></td>
                     </tr>
                 </table>
                 <hr>
@@ -47,7 +67,7 @@
                     <tr>
                         <td>User Name</td>
                         <td>:</td>
-                        <td><input type="text"></td>
+                        <td><input type="text" name="username"></td>
                     </tr>
                 </table>
                 <hr>
@@ -56,7 +76,7 @@
                     <tr>
                         <td>Password</td>
                         <td>:</td>
-                        <td><input type="password"></td>
+                        <td><input type="password" name="password"></td>
                     </tr>
                 </table>
                 <hr>
@@ -65,24 +85,24 @@
                     <tr>
                         <td>Confirm Password</td>
                         <td>:</td>
-                        <td><input type="password"></td>
+                        <td><input type="password" name="confirm"></td>
                     </tr>
                 </table>
                 <hr>
 
                 <fieldset>
                     <legend>Gender</legend>
-                    <input type="radio" name="gender"> Male
-                    <input type="radio" name="gender"> Female
-                    <input type="radio" name="gender"> Other
+                    <input type="radio" name="gender" value="Male"> Male
+                    <input type="radio" name="gender" value="Female"> Female
+                    <input type="radio" name="gender" value="Other"> Other
                 </fieldset>
 
 
                 <fieldset>
                     <legend>Date of Birth</legend>
-                    <input type="text"> /
-                    <input type="text"> /
-                    <input type="text">
+                    <input type="text" name="dd"> /
+                    <input type="text" name="mm"> /
+                    <input type="text" name="yyyy">
                     <span>(dd/mm/yyyy)</span>
                 </fieldset>
 
@@ -91,7 +111,7 @@
 
                 <br><hr>
 
-                <input type="submit" value="Submit">
+                <input type="submit" value="Submit" name="submit">
                 <input type="reset" value="Reset">
 
             </form>
@@ -103,5 +123,6 @@
             <p>Copyright © 2017</p>
         </footer>
     </div>
+
 </body>
 </html>
