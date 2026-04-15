@@ -6,14 +6,26 @@ if (!isset($_SESSION['users'])) {
 }
 
 if (isset($_POST['submit'])) {
-    $email = $_POST['email'];
 
-    if (!isset($_SESSION['users'][$email]) &&
+    $username = $_POST['username'];
+
+
+    if (!isset($_SESSION['users'][$username]) &&
         $_POST['password'] == $_POST['confirm']) {
 
-        $_SESSION['users'][$email] = $_POST;
+        $_SESSION['users'][$username] = [
+            "name" => $_POST['name'],
+            "username" => $username,
+            "password" => $_POST['password'],
+            "gender" => $_POST['gender'],
+            "dob" => $_POST['dd'] . "/" . $_POST['mm'] . "/" . $_POST['yyyy']
+        ];
+
         header("Location: login.php");
         exit();
+
+    } else {
+        echo "Registration failed (username exists or password mismatch)";
     }
 }
 ?>
